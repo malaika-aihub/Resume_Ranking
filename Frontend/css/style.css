@@ -1,0 +1,186 @@
+/* ------------------------------
+   Global Styles
+---------------------------------*/
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #0A192F;
+    color: #ffffff;
+}
+
+h1, h2, h3, h4 {
+    color: #ffffff;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ------------------------------
+   Header
+---------------------------------*/
+header {
+    background-color: #112240;
+    padding: 20px;
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+/* ------------------------------
+   Sections
+---------------------------------*/
+.upload-section, 
+.dashboard-section {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 25px;
+    background-color: #112240;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.5);
+}
+
+/* ------------------------------
+   Custom File Input
+---------------------------------*/
+.file-upload-wrapper {
+    position: relative;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+input[type="file"] {
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.custom-file-label {
+    display: block;
+    padding: 12px 15px;
+    background-color: #1F6FEB;
+    color: white;
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.custom-file-label:hover {
+    background-color: #0d4ec2;
+}
+
+#file-names {
+    margin-top: 10px;
+    color: #ffffff;
+    font-size: 0.95rem;
+}
+
+/* Existing textarea + input styles */
+input[type="text"], textarea {
+    width: 100%;
+    padding: 12px 15px;
+    margin: 10px 0 20px 0;
+    border: 1px solid #1F6FEB;
+    border-radius: 8px;
+    background-color: #0A192F;
+    color: white;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus,
+textarea:focus {
+    border-color: #1F6FEB;
+    box-shadow: 0 0 5px #1F6FEB;
+    outline: none;
+}
+
+textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+
+/* ------------------------------
+   Buttons
+---------------------------------*/
+button, input[type="submit"] {
+    padding: 10px 20px;
+    background-color: #1F6FEB;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover, input[type="submit"]:hover {
+    background-color: #0d4ec2;
+}
+
+/* ------------------------------
+   Dashboard Cards
+---------------------------------*/
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.card {
+    background-color: #112240;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+    flex: 1 1 calc(50% - 20px);
+    min-width: 250px;
+}
+
+.card h3 {
+    margin-top: 0;
+    color: #1F6FEB;
+}
+
+.card p {
+    margin: 5px 0;
+    color: #ffffff;
+}
+
+/* ------------------------------
+   Progress Bar
+---------------------------------*/
+.progress-container {
+    background-color: #0A192F;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-top: 10px;
+    height: 15px;
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: #1F6FEB;
+    width: 0%;
+    transition: width 0.5s ease-in-out;
+}
+
+/* ------------------------------
+   Responsive
+---------------------------------*/
+@media (max-width: 768px) {
+    .upload-section, .dashboard-section {
+        margin: 20px;
+    }
+    .cards-container {
+        flex-direction: column;
+    }
+}

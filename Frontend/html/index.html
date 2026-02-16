@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TalentRank AI - Upload Resumes</title>
+  <link rel="stylesheet" href="/Frontend/css/style.css">
+</head>
+<body>
+  <header>
+    <h1>TalentRank AI</h1>
+  </header>
+
+  <main>
+   <div class="upload-section">
+    <form id="uploadForm">
+        <!-- Custom file input -->
+        <div class="file-upload-wrapper">
+            <label for="resumeFiles" class="custom-file-label">Choose Resumes</label>
+            <input type="file" id="resumeFiles" name="resumes" multiple accept=".pdf" required>
+            <div id="file-names">No file selected</div>
+        </div>
+
+        <label for="jobDescription">Job Description</label>
+        <textarea id="jobDescription" name="jobDescription" placeholder="Enter job description..." required></textarea>
+
+        <button type="submit">Analyze</button>
+    </form>
+</div>
+  </main>
+
+  <script src="/Frontend/js/upload.js"></script>
+</body>
+</html>
