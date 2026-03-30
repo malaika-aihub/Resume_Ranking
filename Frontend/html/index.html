@@ -7,28 +7,82 @@
   <link rel="stylesheet" href="/Frontend/css/style.css">
 </head>
 <body>
-  <header>
-    <h1>TalentRank AI</h1>
-  </header>
 
-  <main>
-   <div class="upload-section">
+<header>
+  <h1>TalentRank AI</h1>
+</header>
+
+<main>
+  <div class="upload-section">
     <form id="uploadForm">
-        <!-- Custom file input -->
+        <!-- Custom File Upload -->
         <div class="file-upload-wrapper">
             <label for="resumeFiles" class="custom-file-label">Choose Resumes</label>
             <input type="file" id="resumeFiles" name="resumes" multiple accept=".pdf" required>
             <div id="file-names">No file selected</div>
         </div>
 
-        <label for="jobDescription">Job Description</label>
-        <textarea id="jobDescription" name="jobDescription" placeholder="Enter job description..." required></textarea>
+        <!-- Job Description -->
+        <textarea id="jobDescription" name="job_description" placeholder="Enter job description..." required></textarea>
 
+        <!-- Analyze Button -->
         <button type="submit">Analyze</button>
     </form>
-</div>
-  </main>
 
-  <script src="/Frontend/js/upload.js"></script>
+    <!-- Status Message -->
+    <p id="status"></p>
+  </div>
+</main>
+
+<script>
+// Show selected file names
+const fileInput = document.getElementById('resumeFiles');
+const fileNames = document.getElementById('file-names');
+fileInput.addEventListener('change', () => {
+    const names = Array.from(fileInput.files).map(f => f.name).join(', ');
+    fileNames.textContent = names || 'No file selected';
+});
+
+// Form submission - Analyze
+const form = document.getElementById("uploadForm");
+const status = document.getElementById("status");
+
+form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const files = fileInput.files;
+    const jd = document.getElementById("jobDescription").value;
+
+    const formData = new FormData();
+    formData.append("job_description", jd);
+
+    for (let file of files) {
+        formData.append("resumes", file);
+    }
+
+    status.innerText = "Analyzing... ⏳";
+
+    try {
+        const res = await fetch("http://127.0.0.1:8000/analyze", {
+            method: "POST",
+            body: formData
+        });
+
+        const data = await res.json();
+
+        if (res.ok) {
+            status.innerText = "✅ Analysis done!";
+            console.log(data);
+        } else {
+            status.innerText = "❌ Error: " + data.detail;
+        }
+
+    } catch (err) {
+        status.innerText = "❌ Request failed";
+        console.error(err);
+    }
+});
+</script>
+
 </body>
 </html>

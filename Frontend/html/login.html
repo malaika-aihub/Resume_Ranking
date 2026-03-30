@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TalentRank AI - Login</title>
+  <link rel="stylesheet" href="../css/login.css">
+</head>
+<body>
+
+  <div class="login-container">
+    <h2 class="title">Welcome Back</h2>
+    <p class="subtitle">Login to your TalentRank AI account</p>
+
+    <form id="loginForm">
+      <div class="input-group">
+        <input type="text" id="username" name="username" placeholder="Username" required>
+      </div>
+      <div class="input-group">
+        <input type="password" id="password" name="password" placeholder="Password" required>
+      </div>
+      <button type="submit" class="login-btn">Login</button>
+    </form>
+
+    <p id="loginStatus" class="status-msg"></p>
+    <p class="signup-text">Don't have an account? <a href="signup.html">Sign Up</a></p>
+  </div>
+
+  <script src="../js/login.js"></script>
+</body>
+</html>
